@@ -1,3 +1,20 @@
+/* ---------------------------------- Reset --------------------------------- */
+
+[data-sileo-viewport] *,
+[data-sileo-viewport] *::before,
+[data-sileo-viewport] *::after {
+	box-sizing: border-box;
+	border: 0 solid;
+	margin: 0;
+	padding: 0;
+}
+
+[data-sileo-viewport] button {
+	font: inherit;
+	background-color: transparent;
+	border-radius: 0;
+}
+
 /* -------------------------------- Variables ------------------------------- */
 
 :root {

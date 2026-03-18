@@ -18,12 +18,6 @@ Import the CSS in your global styles:
 @import 'sileo-angular/src/lib/styles/sileo.css';
 ```
 
-> **Important:** A CSS reset (like Tailwind's preflight) is recommended for best results. At minimum, add this to your global styles:
-> ```css
-> *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-> button { font: inherit; background: transparent; border-radius: 0; }
-> ```
-
 ## Usage
 
 ### 1. Add the Toaster component
