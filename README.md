@@ -1,8 +1,8 @@
 # sileo-angular
 
-A faithful Angular port of [Sileo](https://sileo.aaryan.design/) — an opinionated, physics-based toast notification library.
+An opinionated toast component for Angular with SVG morphing, spring physics, and a minimal API. Based on [Sileo](https://github.com/hiaaryan/sileo).
 
-> **All credits to [Aaryan Kapoor](https://github.com/hiaaryan) for the original [Sileo](https://github.com/hiaaryan/sileo) React library.** This project is a direct port to Angular, preserving the same visual design, SVG morphing, spring physics animations, and minimal API.
+**[Live Demo](https://myposty.github.io/sileo-angular/)**
 
 ## Installation
 

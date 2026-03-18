@@ -1,10 +1,15 @@
 {
   "name": "sileo-angular",
-  "version": "0.0.1",
-  "description": "An opinionated toast component for Angular. SVG morphing, spring physics, and a minimal API — beautiful by default.",
-  "keywords": ["angular", "toast", "notifications", "snackbar", "svg", "animation", "spring-physics"],
-  "author": "",
+  "version": "0.1.0",
+  "description": "An opinionated toast component for Angular. SVG morphing, spring physics, and a minimal API — beautiful by default. Based on Sileo.",
+  "keywords": ["angular", "toast", "notifications", "snackbar", "svg", "animation", "spring-physics", "sileo"],
+  "author": "JoajuSoftware",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/myposty/sileo-angular"
+  },
+  "homepage": "https://myposty.github.io/sileo-angular/",
   "peerDependencies": {
     "@angular/common": ">=17.0.0",
     "@angular/core": ">=17.0.0",
