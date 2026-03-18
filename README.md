@@ -10,15 +10,9 @@ A faithful Angular port of [Sileo](https://sileo.aaryan.design/) — an opiniona
 npm install sileo-angular
 ```
 
-## Setup
-
-Import the CSS in your global styles:
-
-```scss
-@import 'sileo-angular/src/lib/styles/sileo.css';
-```
-
 ## Usage
+
+No additional CSS imports needed — styles are bundled with the component.
 
 ### 1. Add the Toaster component
 
