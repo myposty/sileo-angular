@@ -46,30 +46,37 @@ export class Sileo {
 
   /* ----------------------------- Public API -------------------------------- */
 
+  /** Show a success toast. Returns the toast ID. */
   success(opts: ToastOptions): string {
     return this._createToast({ ...opts, state: 'success' });
   }
 
+  /** Show an error toast. Returns the toast ID. */
   error(opts: ToastOptions): string {
     return this._createToast({ ...opts, state: 'error' });
   }
 
+  /** Show a warning toast. Returns the toast ID. */
   warning(opts: ToastOptions): string {
     return this._createToast({ ...opts, state: 'warning' });
   }
 
+  /** Show an info toast. Returns the toast ID. */
   info(opts: ToastOptions): string {
     return this._createToast({ ...opts, state: 'info' });
   }
 
+  /** Show an action toast with a button. Returns the toast ID. */
   action(opts: ToastOptions): string {
     return this._createToast({ ...opts, state: 'action' });
   }
 
+  /** Show a toast with a custom type. Returns the toast ID. */
   show(opts: ToastOptions): string {
     return this._createToast({ ...opts, state: opts.type ?? opts.state ?? 'success' });
   }
 
+  /** Show a promise toast that transitions through loading → success/error. Returns the promise. */
   promise<T>(
     promiseOrObservable: Promise<T> | Observable<T> | (() => Promise<T>),
     opts: ToastPromiseOptions<T>,
@@ -104,6 +111,7 @@ export class Sileo {
     return p;
   }
 
+  /** Dismiss a toast by ID */
   dismiss(id: string): void {
     const item = this.toasts().find(t => t.id === id);
     if (!item || item.exiting) return;
@@ -115,6 +123,7 @@ export class Sileo {
     }, EXIT_DURATION);
   }
 
+  /** Clear all toasts, or only toasts at a specific position */
   clear(position?: string): void {
     this._clearAllTimers();
     this.toasts.update(prev => (position ? prev.filter(t => t.position !== position) : []));
