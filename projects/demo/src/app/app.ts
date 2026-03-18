@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { SileoToaster, Sileo } from 'sileo-angular';
+import { Component, inject, signal } from '@angular/core';
+import { SileoToaster, Sileo, ToastPosition } from 'sileo-angular';
 
 @Component({
   selector: 'app-root',
@@ -8,37 +8,44 @@ import { SileoToaster, Sileo } from 'sileo-angular';
   styleUrl: './app.scss',
 })
 export class App {
-  private sileo = inject(Sileo);
+  sileo = inject(Sileo);
+  position = signal<ToastPosition>('top-right');
+
+  positions: ToastPosition[] = ['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'];
+
+  setPosition(pos: ToastPosition) {
+    this.position.set(pos);
+  }
 
   showSuccess() {
-    this.sileo.success({ title: 'Success', description: 'Your changes have been saved successfully.' });
+    this.sileo.success({ title: 'Event Created', description: 'Your event has been created successfully.' });
   }
 
   showError() {
-    this.sileo.error({ title: 'Error', description: 'Something went wrong. Please try again.' });
+    this.sileo.error({ title: 'Error', description: 'There was an error with your request.' });
   }
 
   showWarning() {
-    this.sileo.warning({ title: 'Warning', description: 'Your storage is almost full. Please upgrade your plan to continue.' });
+    this.sileo.warning({ title: 'Storage Almost Full', description: "You've used 95% of your available storage. Please upgrade your plan to continue." });
   }
 
   showInfo() {
-    this.sileo.info({ title: 'Info', description: 'A new version of the app is available.' });
+    this.sileo.info({ title: 'New Update Available', description: 'Version 2.0 is now available. Please update your app to continue using the latest features.' });
   }
 
   showAction() {
     this.sileo.action({
-      title: 'Action',
-      description: 'File has been deleted.',
-      button: { title: 'Undo', onClick: () => this.sileo.success({ title: 'Restored' }) },
+      title: 'File Deleted',
+      description: 'The file has been permanently removed from your workspace.',
+      button: { title: 'Undo', onClick: () => this.sileo.success({ title: 'File Restored' }) },
     });
   }
 
   showPromise() {
     this.sileo.promise(new Promise(r => setTimeout(() => r('Done'), 2000)), {
-      loading: { title: 'Loading' },
-      success: d => ({ title: 'Success', description: String(d) }),
-      error: () => ({ title: 'Error' }),
+      loading: { title: 'Saving Changes', description: 'Please wait while we save your changes...' },
+      success: () => ({ title: 'Changes Saved', description: 'All your changes have been saved successfully.' }),
+      error: () => ({ title: 'Save Failed', description: 'Could not save changes. Please try again.' }),
     });
   }
 }

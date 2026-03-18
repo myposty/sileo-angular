@@ -1,15 +1,47 @@
-<div class="demo-container">
-  <h1>sileo-angular</h1>
-  <p>An opinionated toast component for Angular. SVG morphing, spring physics, and a minimal API.</p>
+<div class="page">
+  <div class="hero">
+    <h1>sileo-angular</h1>
+    <p class="subtitle">Toast notifications for Angular with gooey SVG animations and spring physics. Zero config, just works.</p>
+    <p class="credit">Based on <a href="https://sileo.aaryan.design/" target="_blank">Sileo</a></p>
+  </div>
 
-  <div class="buttons">
-    <button class="btn success" (click)="showSuccess()">Success</button>
-    <button class="btn error" (click)="showError()">Error</button>
-    <button class="btn warning" (click)="showWarning()">Warning</button>
-    <button class="btn info" (click)="showInfo()">Info</button>
-    <button class="btn action" (click)="showAction()">Action</button>
-    <button class="btn promise" (click)="showPromise()">Promise</button>
+  <div class="playground">
+    <div class="section">
+      <h2>Position</h2>
+      <p class="hint">Pick a position, click any type to fire it live.</p>
+      <div class="pill-group">
+        @for (pos of positions; track pos) {
+          <button
+            class="pill"
+            [class.active]="position() === pos"
+            (click)="setPosition(pos)"
+          >{{ pos }}</button>
+        }
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <h2>Types</h2>
+      <div class="pill-group">
+        <button class="pill type success" (click)="showSuccess()">Success</button>
+        <button class="pill type error" (click)="showError()">Error</button>
+        <button class="pill type warning" (click)="showWarning()">Warning</button>
+        <button class="pill type info" (click)="showInfo()">Info</button>
+        <button class="pill type action" (click)="showAction()">Action</button>
+        <button class="pill type promise" (click)="showPromise()">Promise</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="https://github.com/myposty/sileo-angular" target="_blank">GitHub</a>
+    <span class="dot"></span>
+    <a href="https://github.com/hiaaryan/sileo" target="_blank">Original Sileo</a>
+    <span class="dot"></span>
+    <span>MIT License</span>
   </div>
 </div>
 
-<sileo-toaster position="top-right" theme="light" />
+<sileo-toaster [position]="position()" theme="light" />

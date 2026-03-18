@@ -6,6 +6,7 @@ import {
   signal,
   effect,
   OnDestroy,
+  ViewEncapsulation,
 } from '@angular/core';
 import { Sileo } from '../services/sileo.service';
 import { ToastComponent } from './toast.component';
@@ -25,6 +26,8 @@ function expandDir(pos: string): string {
   selector: 'sileo-toaster',
   standalone: true,
   imports: [ToastComponent],
+  encapsulation: ViewEncapsulation.None,
+  styleUrl: '../styles/sileo.css',
   template: `
     <ng-content />
     @for (entry of activePositions(); track entry.position) {
