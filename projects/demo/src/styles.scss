@@ -1,0 +1,22 @@
+@import '../../../dist/sileo-angular/src/lib/styles/sileo.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  border: 0 solid;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font: inherit;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  line-height: 1.5;
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+}
