@@ -48,4 +48,9 @@ export class App {
       error: () => ({ title: 'Save Failed', description: 'Could not save changes. Please try again.' }),
     });
   }
+
+  copyInstall() {
+    navigator.clipboard.writeText('npm install sileo-angular');
+    this.sileo.success({ title: 'Copied to clipboard' });
+  }
 }
